@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Product Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="JB_HP.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-gray-900">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <!--
+                      Icon when menu is closed.
+          
+                      Menu open: "hidden", Menu closed: "block"
+                    -->
+                        <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!--
+                      Icon when menu is open.
+          
+                      Menu open: "block", Menu closed: "hidden"
+                    -->
+                        <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex shrink-0 items-center">
+                        <img class="h-8 w-auto"
+                            src="https://tropipedia.com/wp-content/uploads/2023/03/Tokopedia-Logo.png"
+                            alt="Your Company">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                aria-current="page">Description</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Specs</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Our Goals</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button"
+                        class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span class="absolute -inset-1.5"></span>
+                        <span class="sr-only">View notifications</span>
+                        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                        </svg>
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <div class="relative ml-3">
+                        <div>
+                            <button type="button"
+                                class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">Open user menu</span>
+                                <img class="size-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                            </button>
+                        </div>
+
+                        <!--
+                      Dropdown menu, show/hide based on menu state.
+          
+                      Entering: "transition ease-out duration-100"
+                        From: "transform opacity-0 scale-95"
+                        To: "transform opacity-100 scale-100"
+                      Leaving: "transition ease-in duration-75"
+                        From: "transform opacity-100 scale-100"
+                        To: "transform opacity-0 scale-95"
+                    -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    aria-current="page">Dashboard</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white shadow d-none">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center">
+                <img alt="Tokopedia Logo" class="h-8" height="400"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKK2gSekf2R7aLlXUw33WVWjBFQtR58ldD2w&s"
+                    width="200" />
+
+                <!-- <nav class="navbar navbar-expand-lg px-4 sticky-lg-top">
+                        <div class="container-fluid">
+                            <a class="navbar-brand fs-5 fw-bold" href="#">Tokopedia</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                                <ul class="navbar-nav fs-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#fasilitas">Specs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#About">About Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Alamat">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <button class="btn btn-success me-5" data-bs-toggle="modal" data-bs-target="#modalCariDokter">Cari Aksesoris</button>
+                                <button class="btn btn-primary me-2">Login</button>
+                                <button class="btn btn-secondary me-4">Register</button>
+                            </div>
+                        </div>
+                    </nav> -->
+
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto mt-6 px-6">
+        <div class="flex space-x-6">
+            <div class="w-2/3">
+                <div class="bg-white p-6 rounded shadow">
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://www.gizmochina.com/wp-content/uploads/2024/10/vivo-x200-pro-hands-on-11-scaled.jpg"
+                                    class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://pbs.twimg.com/media/GZ3A9BBagAA75Sh.jpg:large" class="d-block w-100"
+                                    alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/92/2024/10/15/WhatsApp-Image-2024-10-15-at-140313_ff864e7a-1035028259.jpg"
+                                    class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div>
+                            <h1 class="text-2xl font-bold">VIVO X200 Pro 5G Dimensity 9400 - Sapphire Blue, 12/256 Gb
+                            </h1>
+                            <div class="flex items-center space-x-2 mt-2">
+                                <span class="text-yellow-500">
+                                    <i class="fas fa-star"></i>
+                                </span>
+                                <span class="text-gray-700">5 (4 rating)</span>
+                                <span class="text-gray-500"> •</span>
+                                <span class="text-gray-700">Diskusi (6)</span>
+                            </div>
+                            <div class="text-3xl font-bold text-green-600 mt-4">Rp17.450.000
+                            </div>
+                            <div class="mt-4">
+                                <h2 class="text-lg font-semibold">Pilih ukuran:</h2>
+                                <div class="flex space-x-2 mt-2">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">12/256 Gb</button>
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">16/512 Gb</button>
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">16/1 Tb</button>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h2 class="text-lg font-semibold">Pilih warna:</h2>
+                                <div class="flex space-x-2 mt-2">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Titanium Gray</button>
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Carbon Black</button>
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Moonlight White</button>
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Sapphire Blue</button>
+                                </div>
+                                <div class="flex space-x-2 mt-4">
+                                    <img alt="Image 1" class="w-1/4" height="100"
+                                        src="https://images.tokopedia.net/img/cache/100-square/VqbcmM/2024/10/16/e4a7946e-4ff1-4adf-9cab-d09ca539b997.jpg.webp?ect=4g"
+                                        width="100" />
+                                    <img alt="Image 2" class="w-1/4" height="100"
+                                        src="https://images.tokopedia.net/img/cache/100-square/VqbcmM/2024/10/16/4bc66651-e44e-45f0-a654-c205ff0f1868.jpg.webp?ect=4g"
+                                        width="100" />
+                                    <img alt="Image 3" class="w-1/4" height="100"
+                                        src="https://images.tokopedia.net/img/cache/100-square/VqbcmM/2024/10/16/63070e99-fdc9-46fd-b9f3-b06613ceee3e.jpg.webp?ect=4g"
+                                        width="100" />
+                                    <img alt="Image 4" class="w-1/4" height="100"
+                                        src="https://images.tokopedia.net/img/cache/100-square/VqbcmM/2024/10/16/24177f8d-65cc-42ee-bfdd-764decbecf0f.jpg.webp?ect=4g"
+                                        width="100" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/3">
+                <div class="bg-white p-6 rounded shadow">
+                    <h2 class="text-lg font-semibold">Atur jumlah dan catatan</h2>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <img alt="Vivo X200 Pro" class="w-1/4" height="100"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcbpKKwLoVZRXQ_rzXnSAs7Th0qhPbZdS3gg&s"
+                            width="100" />
+                        <div>
+                            <h3 class="text-gray-700">Sapphire Blue, 12/256 Gb</h3>
+                            <div class="text-red-600 font-bold">Sisa 1</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">-</button>
+                        <input class="w-12 text-center border border-gray-300 rounded" type="text" value="1" />
+                        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded">+</button>
+                    </div>
+                    <div class="text-2xl font-bold text-green-600 mt-4">Rp17.450.000
+                    </div>
+                    <button class="bg-green-600 text-white w-full py-2 rounded mt-4">+ Keranjang</button>
+                    <button class="bg-green-200 text-green-600 w-full py-2 rounded mt-2">PreOrder</button>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <button class="text-gray-700">
+                            <i class="fas fa-comment"></i>Chat
+                        </button>
+                        <button class="text-gray-700">
+                            <i class="fas fa-heart"></i>Wishlist
+                        </button>
+                        <button class="text-gray-700">
+                            <i class="fas fa-share"></i>Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+
+        <!-- Additional Tabs Component -->
+        <div class="container mx-auto px-4 py-6 bg-white p-6 rounded shadow" id="fasilitas">
+            <div class="bg-white p-6 rounded shadow mt-6">
+                <div class="flex space-x-4 border-b">
+                    <button class="text-green-600 border-b-2 border-green-600 pb-2 tab-button"
+                        data-tab="detail">Detail</button>
+                    <button class="text-gray-700 pb-2 tab-button" data-tab="spesifikasi">Spesifikasi</button>
+                    <button class="text-gray-700 pb-2 tab-button" data-tab="panduan">Panduan</button>
+                    <button class="text-gray-700 pb-2 tab-button" data-tab="info-penting">Info Penting</button>
+                </div>
+                <div class="mt-4 tab-content" id="detail">
+                    <p class="text-gray-700">Kondisi: Baru</p>
+                    <p class="text-gray-700">Waktu Preorder: 7 Hari</p>
+                    <p class="text-gray-700">Min. Pemesanan: 1 Buah</p>
+                    <p class="text-gray-700">Etalase: VIVO</p>
+                </div>
+                <div class="mt-4 tab-content hidden" id="spesifikasi">
+                    <p class="text-gray-700">Network Technology = GSM / HSPA / LTE / 5G.</p>
+                    <p class="text-gray-700">Launch Announced = Released 2024, October 19.</p>
+                    <p class="text-gray-700">Body Dimensions 162.4 x 76 x 8.2 mm or 8.5 mm
+                        Weight 223 g or 228 g (7.87 oz)
+                        Build Glass front, aluminum alloy frame, glass back
+                        SIM Dual SIM (Nano-SIM, dual stand-by)
+                        IP68/IP69 dust/water resistant (up to 1.5m for 30 min).</p>
+                    <p class="text-gray-700">Display Type LTPO AMOLED, 1B colors, 120Hz, HDR10+, Dolby Vision, 4500 nits
+                        (peak)
+                        Size 6.78 inches, 111.5 cm2 (~90.3% screen-to-body ratio)
+                        Resolution 1260 x 2800 pixels, 20:9 ratio (~452 ppi density)
+                        Protection Scratch/drop-resistant glass (Armor Glass).</p>
+                    <p class="text-gray-700">Platform OS Android 15, Funtouch 15 (International), OriginOS 5 (China)
+                        Chipset Mediatek Dimensity 9400 (3 nm)
+                        CPU Octa-core (1x3.63 GHz Cortex-X925 & 3x3.3 GHz Cortex-X4 & 4x2.4 GHz Cortex-A720)
+                        GPU Immortalis-G925.</p>
+                    <p class="text-gray-700">Memory Card slot No
+                        Internal 256GB 12GB RAM, 512GB 16GB RAM, 1TB 16GB RAM
+                        UFS 4.0.</p>
+                    <p class="text-gray-700">Main Camera Triple 50 MP, f/1.6, 23mm (wide), 1/1.28", 1.22µm, PDAF, OIS
+                        200 MP, f/2.7, 85mm (periscope telephoto), 1/1.4", 0.56µm, multi-directional PDAF, OIS, 3.7x
+                        optical zoom, macro 2.7:1
+                        50 MP, f/2.0, 15mm, 119˚ (ultrawide), 1/2.76", 0.64µm, AF
+                        Features Laser AF, Zeiss optics, Zeiss T* lens coating, LED flash, panorama, HDR, 3D LUT import
+                        Video 8K@30fps (China only), 4K@30/60/120fps, 1080p, gyro-EIS, 10-bit Log, Dolby Vision HDR.</p>
+                    <p class="text-gray-700">Selfie camera Single 32 MP, f/2.0, 20mm (ultrawide)
+                        Features HDR
+                        Video 4K@30/60fps, 1080p@30/60fps.</p>
+                    <p class="text-gray-700">Sound Loudspeaker Yes, with stereo speakers
+                        3.5mm jack No
+                        24-bit/192kHz Hi-Res audio.</p>
+                    <p class="text-gray-700">Comms WLAN Wi-Fi 802.11 a/b/g/n/ac/6/7, dual-band
+                        Bluetooth 5.4, A2DP, LE, aptX HD, LHDC 5
+                        Positioning GPS (L1+L5), GLONASS (L1), BDS (B1I+B1c+B2a+B2b), GALILEO (E1+E5a+E5b), QZSS
+                        (L1+L5), NavIC (L5)
+                        NFC Yes
+                        Infrared port Yes
+                        Radio No
+                        USB USB Type-C 3.2, OTG.</p>
+                    <p class="text-gray-700">Features Sensors Fingerprint (under display, ultrasonic), accelerometer,
+                        gyro, proximity, compass, color spectrum
+                        Satellite connectivity support (optional, market/region dependent).</p>
+                    <p class="text-gray-700">Battery Type Si/C 6000 mAh, non-removable
+                        Charging 90W wired
+                        30W wireless
+                        Reverse wired.</p>
+                </div>
+                <div class="mt-4 tab-content hidden" id="panduan">
+                    <p class="text-gray-700">Berikut adalah beberapa panduan penggunaan ponsel Android:
+                        <li>Pengaturan awal
+                            Ubah bahasa, aktifkan fitur aksesibilitas, masukkan kartu SIM, dan hubungkan ke jaringan
+                            Wi-Fi</li>
+                        <li>Memindahkan data
+                            Ikuti instruksi di layar untuk memindahkan data dan akun Google dari perangkat lama. Jika
+                            tidak memulihkan data, masuk ke akun Google untuk menyinkronkan data dan memulihkan backup
+                            Google One</li>
+                        <li>Atur keamanan
+                            Atur pengaturan keamanan seperti sidik jari, pengenalan wajah, PIN, atau kata sandi</li>
+                        <li>Fitur tambahan
+                            Atur fitur tambahan seperti Google Assistant, Google Pay, dan lainnya. </li>
+                        <li>Navigasi
+                            Geser ke kanan atau ke kiri untuk berpindah antar-layar utama. Anda juga bisa menggunakan
+                            navigasi gestur atau navigasi 2 tombol.</li>
+                        <li>Kesehatan digital
+                            Buka aplikasi Setelan, lalu ketuk Kesehatan Digital & kontrol orang tua</li>
+                        <li>Penggunaan yang bijak
+                            Gunakan aplikasi yang menunjang aktivitas, hapus aplikasi yang tidak penting, dan gunakan
+                            ponsel ketika dibutuhkan. Atur notifikasi agar hanya menerima pemberitahuan yang penting,
+                            dan pantau penggunaan data</li>
+                        <li>Merawat ponsel
+                            Saat menggunakan ponsel, jaga tulang belakang netral agar telingamu tetap sejajar dengan
+                            bahu. Beristirahatlah setiap 20-30 menit.</li>
+                    </p>
+                </div>
+                <div class="mt-4 tab-content hidden" id="info-penting">
+                    <p class="text-gray-700">Dengan menggunakan handphone kita bisa berkomunikasi dengan orang lain
+                        tidak peduli jarak dan juga waktu kita berkomunikasi tersebut. Dengan adanya handphone kita juga
+                        bisa lebih mudah menyelesaikan berbagai macam urusan pekerjaan dengan 1 handphone yang kita
+                        miliki.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container-fluid pb-5 pt-3 nav bg-white p-6 rounded shadow mt-6" id="About">
+                <div class="container p-5">
+                    <h1 class="text-center pt-4"></h1>
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <img src="https://vivonewsroom.b-cdn.net/wp-content/uploads/2024/07/After-sales-service-vivo-Newsroom.png"
+                                class="img-fluid rounded-4" alt="About Us Image">
+                        </div>
+                        <div class="col-md-6 text-gray-700 bg-white p-6 rounded shadow mt-6">
+                            <h2 class="text-2xl">Profil Muhammad Qohir</h2><br>
+                            <p class="fs-5">
+                            <p>
+                                Sebagai Seorang Sales Handphone Vivo, Saya bertugas memasarkan dan menjual produk-produk
+                                smartphone Vivo kepada konsumen. Saya berperan sebagai perwakilan perusahaan Vivo dalam
+                                memberikan informasi, layanan, dan pengalaman terbaik kepada pelanggan.
+                            </p><br>
+                            <p>Visi :
+                                <li>Untuk menjadi sebuah perusahaan global yang lebih sehat, perusahaan yang bertahan
+                                    lebih lama
+                                </li>
+                            </p><br>
+                            <p>Misi :
+                                <li>● Untuk konsumen: Menyediakan produk berkualitas dan layanan yang unggul
+                                </li>
+                                <li>● Untuk karyawan: Menciptakan dan memelihara keharmonisan, lingkungan kerja saling
+                                    menghormati
+                                </li>
+                                <li>● Untuk Mitra Bisnis: Menciptakan satu platform kerjasama yang adil, yang saling
+                                    menguntungkan
+                                </li>
+                                <li>● Untuk Pemegang Saham: Menyediakan Above-Average Returns atas investasi
+                                </li>
+                            <p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+
+        <div class="container mx-auto px-4 py-6 bg-white p-6 rounded shadow">
+            <div>
+                <section id="about" class="about">
+                    <div class="container max-w-sm mx-auto">
+                        <h2 class="text-4xl">Tentang Kami</h2>
+                    </div>
+                    <div>
+                    <p>Vivo atau Vivo Technology Co. Ltd. adalah sebuah perusahaan elektronika asal Guangdong, Tiongkok. Perusahaan ini adalah anak dari BBK Electronics, bersamaan dengan Oppo, Realme, iQOO dan OnePlus, yang dikomandoi oleh Shen Wei. Perusahaan ini memproduksi ponsel pintar, perangkat sandang, dan layanan berbasis digital.[1][2] Vivo juga mengembangkan perangkat lunak untuk ponsel, didistribusikan melalui toko aplikasi V-Appstore, dengan iManager termasuk dalam kepemilikan mereka, sistem operasi berbasis Android, Funtouch OS dan Origin OS.
+                        Baru saja Vivo membuat sistem operasi berbasis Android terbarunya yaitu "Origin OS" dengan tampilan semakin canggih dan tampak solid. [butuh penambahan].</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded shadow mt-6">
+        <form class="max-w-sm mx-auto">
+            <h2 class="text-3xl">Contact us</h2><br>
+            <div class="mb-5">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="@gmail.com" required />
+            </div>
+            <div class="mb-9">
+                <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Default input</label>
+                <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="flex items-start mb-5">
+                <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+                </div>
+                <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+            </div>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        </form>
+        </div>
+        
+        <div>
+            <footer class="bg-gray-900 rounded-lg shadow dark:bg-gray-900 mt-4">
+                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                            <img src="https://tropipedia.com/wp-content/uploads/2023/03/Tokopedia-Logo.png" class="h-8" alt="Flowbite Logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tokopedia</span>
+                        </a>
+                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">Muhammad Qohir nur™</a>. All Rights Reserved.</span>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // Navigation link active state
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('text-blue-500'));
+                    this.classList.add('text-blue-500');
+                });
+            });
+
+            // Tabs functionality
+            document.querySelectorAll('.border-b ul li a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.border-b ul li a').forEach(link => link.classList.remove('text-blue-500'));
+                    this.classList.add('text-blue-500');
+                    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+                    document.querySelector(this.getAttribute('href')).classList.remove('hidden');
+                });
+            });
+
+            // Additional tabs functionality
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    document.querySelectorAll('.tab-button').forEach(btn => {
+                        btn.classList.remove('text-green-600', 'border-b-2', 'border-green-600');
+                        btn.classList.add('text-gray-700');
+                    });
+                    this.classList.add('text-green-600', 'border-b-2', 'border-green-600');
+                    this.classList.remove('text-gray-700');
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+                    document.getElementById(this.getAttribute('data-tab')).classList.remove('hidden');
+                });
+            });
+
+            // Initialize first tab
+            document.querySelector('.tab-button[data-tab="detail"]').click();
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <div>
+        </div>
+</body>
+
+</html>
